@@ -1,0 +1,157 @@
+.portfolio-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  background: white;
+}
+
+.portfolio-container p{
+  font-family: 'Andale Mono', monospace;
+  font-weight: 900;
+}
+
+/* Общие стили для треугольников */
+.triangle {
+  position: absolute;
+  width: 45%;
+  height: 35%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  font-weight: 900;
+  color: black;
+  opacity: 0;
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out, scale 0.3s ease;
+}
+
+/* Анимация появления с задержкой */
+.portfolio-container.loaded .top-left {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition-delay: 0s;
+}
+
+.portfolio-container.loaded .top-right {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition-delay: 0.3s;
+}
+
+.portfolio-container.loaded .bottom-left {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition-delay: 0.6s;
+}
+
+.portfolio-container.loaded .bottom-right {
+  opacity: 1;
+  transform: translate(0, 0);
+  transition-delay: 0.9s;
+}
+
+/* Позиционирование треугольников с появлением по диагонали */
+.top-left {
+  top: 0;
+  left: 0;
+  background: #3DEC8C;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  transform: translate(-50px, -50px);
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+  background: #F3E04E;
+  clip-path: polygon(100% 0, 100% 100%, 0 0);
+  transform: translate(50px, -50px);
+}
+
+.bottom-left {
+  bottom: 0;
+  left: 0;
+  background: #14EAFA;
+  clip-path: polygon(0 100%, 100% 100%, 0 0);
+  transform: translate(-50px, 50px);
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 0;
+  background: #E61418;
+  clip-path: polygon(100% 100%, 100% 0, 0 100%);
+  transform: translate(50px, 50px);
+}
+
+/* Анимация при наведении */
+.triangle span {
+  display: inline-block; /* Чтобы работал transform */
+  transition: transform 0.3s ease-in-out;
+}
+
+.triangle:hover span {
+  transform: scale(1.3);
+}
+
+
+
+/* Стили для текста внутри треугольников */
+.triangle span {
+  transform-origin: center;
+  font-size: 32px;
+  color: black;
+  position: absolute;
+  font-family: 'Andale Mono', monospace;
+  font-weight: 900;
+}
+
+/* Сдвиг текста ближе к центру */
+.top-left span {
+  transform: rotate(-22deg);
+  top: 20%;
+  left: 20%;
+  font-size: 55px;
+}
+
+.top-right span {
+  transform: rotate(22deg);
+  top: 20%;
+  right: 20%;
+  font-size: 55px;
+}
+
+.bottom-left span {
+  transform: rotate(22deg);
+  bottom: 20%;
+  left: 20%;
+  font-size: 55px;
+}
+
+.bottom-right span {
+  transform: rotate(-22deg);
+  bottom: 20%;
+  right: 20%;
+  font-size: 55px;
+}
+
+/* Центральный текст */
+.center-text {
+  text-align: center;
+  max-width: 40%;
+  font-size: 40px;
+  font-family: 'Andale Mono, monospace';
+  font-weight: 900;
+  letter-spacing: 2%;
+  color: black;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease-out 1.2s, transform 1s ease-out 1.2s;
+}
+
+.portfolio-container.loaded .center-text {
+  opacity: 1;
+  transform: translateY(0);
+}
